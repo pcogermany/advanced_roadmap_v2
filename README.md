@@ -1,7 +1,7 @@
 Redmine Plugin: Advanced Roadmap v2
 ===========================
 
-This plugin is a fork of Redmine Plugin: [advanced roadmap](https://redmine.ociotec.com/projects/advanced-roadmap)
+This plugin is a fork of Redmine Plugin: [advanced roadmap](https://redmine.ociotec.com/projects/advanced-roadmap) and has been updated with correct german locales
 
 ScreenShot
 ==========
@@ -28,11 +28,7 @@ Installation
 
 Steps:
 
-1.  Download last version 
-2.  Unzip in your Redmine folder /plugins
-3.  Rename the folder to advanced_roadmap_v2
-4.  Into the Redmine root folder migrate plugins: `rake redmine:plugins:migrate`
-4.  Ensure required dependency: `apt-get install ruby-rmagick`
-5.  Restart your Redmine.
-
-
+1.  Clone git repository into your Redmine folder /plugins: git clone https://github.com/pcogermany/advanced_roadmap_v2.git
+2.  Into the Redmine root folder migrate plugins: `rake redmine:plugins:migrate`
+3.  Ensure required dependency: `apt-get install ruby-rmagick`
+4.  Restart your Redmine.
