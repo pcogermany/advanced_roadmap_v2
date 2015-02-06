@@ -28,7 +28,7 @@
       <%- end -%>
       <%- if version_rest_hours > 0.0 %>
         <tr>
-          <td width="310px" align="right"><%= l(:label_roadmap_due_in, "") %></td>
+          <td width="310px" align="right"><%= l(:label_roadmap_forecast, "") %></td>
             <%- due, tmp = '', version_rest_hours 
                 due << l_weeks(tmp.div 40) << ' ' and tmp %= 40.0 if (tmp / 40.0) > 1.0
                 due << l_days(tmp.div 8) << ' ' and tmp %= 8.0 if (tmp / 8.0) > 1.0
@@ -37,7 +37,7 @@
         </tr>
         <%- if version_rest_hours != version_speed_rest_hours -%>
           <tr>
-            <td width="310px" align="right"><%= l(:label_roadmap_due_in, "") %> (<%= l(:label_estimated_speed) %>)</td>
+            <td width="310px" align="right"><%= l(:label_roadmap_forecast, "") %> (<%= l(:label_estimated_speed) %>)</td>
             <%- due = l_hours(version_speed_rest_hours) %>
             <%- due = l_days(version_speed_rest_hours / 8.0) if (version_speed_rest_hours / 8.0) > 1.5 %>
             <%- due = l_weeks(version_speed_rest_hours / 40.0) if (version_speed_rest_hours / 40.0) > 1.5 %>
@@ -47,7 +47,7 @@
         <%- if !(custom_field = CustomField.find_by_id(Setting.plugin_advanced_roadmap_v2["parallel_effort_custom_field"].to_i)).nil? and
                custom_field.field_format == "float" and version_parallel_rest_hours != version_rest_hours -%>
           <tr>
-            <td width="310px" align="right"><%= l(:label_roadmap_due_in, "") %> (<%= custom_field.name %>)</td>
+            <td width="310px" align="right"><%= l(:label_roadmap_forecast, "") %> (<%= custom_field.name %>)</td>
             <%- due = l_hours(version_parallel_rest_hours) %>
             <%- due = l_days(version_parallel_rest_hours / 8.0) if (version_parallel_rest_hours / 8.0) > 1.5 %>
             <%- due = l_weeks(version_parallel_rest_hours / 40.0) if (version_parallel_rest_hours / 40.0) > 1.5 %>
@@ -55,7 +55,7 @@
           </tr>
           <%- if version_parallel_speed_rest_hours != version_parallel_rest_hours -%>
             <tr>
-              <td width="310px" align="right"><%= l(:label_roadmap_due_in, "") %> (<%= custom_field.name %> + <%= l(:label_estimated_speed) %>)</td>
+              <td width="310px" align="right"><%= l(:label_roadmap_forecast, "") %> (<%= custom_field.name %> + <%= l(:label_estimated_speed) %>)</td>
               <td width="340px" class="total-hours"><%= "#{l_hours(version_parallel_speed_rest_hours)} / #{l_days(version_parallel_speed_rest_hours / 8.0)} / #{l_weeks(version_parallel_speed_rest_hours / 40.0)}" %></td>
             </tr>
           <%- end -%>
@@ -94,9 +94,9 @@
     <th width="9%" align="center"><%= l(:field_done_ratio) %></th>
     <%- if User.current.allowed_to?(:view_time_entries, @project) and
            User.current.allowed_to?(:view_issue_estimated_hours, @project) -%>
-      <th width="9%" align="center"><%= l(:label_roadmap_due_in, "") %></th>
+      <th width="9%" align="center"><%= l(:label_roadmap_forecast, "") %></th>
       <%- if !version_estimated_speed.nil? -%>
-        <th width="9%" align="center"><%= l(:label_roadmap_due_in, "") %><br />(<%= l(:label_estimated_speed) %>)</th>
+        <th width="9%" align="center"><%= l(:label_roadmap_forecast, "") %><br />(<%= l(:label_estimated_speed) %>)</th>
       <%- end -%>
     <%- end -%>
   </thead>

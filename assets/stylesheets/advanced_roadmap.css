@@ -7,3 +7,8 @@
 {
 	background-image:		url(../images/milestones.png);
 }
+
+div#version-summary
+{
+	margin-left: 0px;
+}

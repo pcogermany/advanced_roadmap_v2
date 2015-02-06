@@ -6,7 +6,7 @@
     <%- if @issue.rest_hours > 0 &&
            User.current.allowed_to?(:view_time_entries, @project) and
            User.current.allowed_to?(:view_issue_estimated_hours, @project) -%>
-      <th class="estimated-hours"><%=l(:label_roadmap_due_in, "")%>:</th>
+      <th class="estimated-hours"><%=l(:label_roadmap_forecast, "")%>:</th>
       <td><%= l_hours(@issue.rest_hours) %></td>
     <%- end -%>
 </tr>
